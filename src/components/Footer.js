@@ -1,20 +1,16 @@
 import React from 'react';
+import { MDBContainer, MDBFooter } from 'mdbreact';
 
 const Footer = () => {
   return (
-    <footer
-      className='text-center footer mx-auto p-3 fixed-bottom'
-      style={{
-        bottom: '0px',
-        position: 'fixed',
-        height: '60px',
-        width: '100%',
-      }}
-    >
-      <span className='mx-auto my-auto'>
-        @{new Date().getFullYear()} GodzillaJim
-      </span>
-    </footer>
+    <MDBFooter>
+      <div className='footer-copyright text-center py-3'>
+        <MDBContainer fluid>
+          &copy; {new Date().getFullYear()} Copyright:{' '}
+          <a href='http://jimna.dx.am'>GodzillaJim</a>
+        </MDBContainer>
+      </div>
+    </MDBFooter>
   );
 };
 

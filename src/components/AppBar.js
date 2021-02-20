@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TypeWriterEffect from 'react-typewriter-effect';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -23,12 +24,20 @@ import { BrowserRouter as Router } from 'react-router-dom';
 const AppBar = () => {
   const [collapse, setCollapse] = useState(false);
   const [isWideEnough, setIsWideEnough] = useState(false);
+  const [typeWriterStrings, setTypewriterStrings] = useState([
+    'I build and manage websites.',
+    'I build design mockups.',
+    'I build Android apps.',
+    'I build desktop applications',
+    'I automate tests for JavaScript applications.',
+    'I manage software development projects.',
+  ]);
 
   const onClick = () => {
     setCollapse(!collapse);
   };
   return (
-    <div>
+    <div className='col-12'>
       <header>
         <Router>
           <MDBNavbar
@@ -70,7 +79,8 @@ const AppBar = () => {
             <MDBAnimation type='fadeInLeft' delay='.3s'>
               <MDBCard
                 id='classic-card mb-4'
-                style={{ top: '75px', display: 'block' }}
+                className='w-100'
+                style={{ top: '75px', display: 'block', width: '100%' }}
               >
                 <MDBCardBody>
                   <h1 className='mb-15 h1-responsive font-weight-bold my-auto mt-sm-5'>
@@ -79,14 +89,28 @@ const AppBar = () => {
                       <br /> Art Space!
                     </span>
                   </h1>
-                  <div className='text-warning my-5 h4'>
-                    &lt;<i>code</i>&gt;
-                    <span className='text-light'>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Delectus esse commodi deserunt vitae, vero quasi! Veniam
-                      quaerat tenetur pariatur doloribus.
+                  <div className='text-warning my-5 row h4 p-0 justify-content-center'>
+                    <div className='col-auto px-0 mt-1'>
+                      &lt;<i>code</i>&gt;
+                    </div>
+                    <span className='text-light px-0 col-auto' id='typewriter'>
+                      <TypeWriterEffect
+                        textStyle={{
+                          fontFamily: 'Red Hat Display',
+                          color: 'white',
+                          fontWeight: 500,
+                          fontSize: '1.5em',
+                        }}
+                        startDelay={2000}
+                        cursorColor='#ffd700'
+                        multiText={typeWriterStrings}
+                        multiTextDelay={1000}
+                        typeSpeed={30}
+                      />
                     </span>
-                    &lt;&#47;<i>code</i> &gt;
+                    <div className='col-auto px-0 mt-1'>
+                      &lt;&#47;<i>code</i> &gt;
+                    </div>
                   </div>
                   <div className='mx-auto my-5'>
                     <MDBBtn
