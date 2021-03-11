@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import TypeWriterEffect from 'react-typewriter-effect';
+import { CircularProgressBar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import { SocialMediaIconsReact } from 'social-media-icons-react';
+import { Line } from 'rc-progress';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -19,11 +23,17 @@ import {
   MDBBtn,
   MDBChip,
 } from 'mdbreact';
+import SocialMediaButtons from 'react-social-media-buttons';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
+import { Button, Card, Row, Col, ProgressBar } from 'react-bootstrap';
+import passport from '../passport.png';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 const AppBar = () => {
   const [collapse, setCollapse] = useState(false);
   const [isWideEnough, setIsWideEnough] = useState(false);
+  const [open, setOpen] = useState(true);
   const [typeWriterStrings, setTypewriterStrings] = useState([
     'I build and manage websites.',
     'I build design mockups.',
@@ -40,6 +50,168 @@ const AppBar = () => {
     <div className='col-12'>
       <header>
         <Router>
+          <Drawer
+            PaperProps={{
+              className: 'bg-dark',
+            }}
+            variant='temporary'
+            anchor='left'
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+            }}
+            className='p-1'
+            open={open}
+          >
+            <Button variant='link' size='lg' onClick={() => setOpen(false)}>
+              Close
+            </Button>
+            <Divider />
+            <Card className='p-2' style={{ width: '250px' }}>
+              <Card.Img
+                className='mx-auto rounded-circle'
+                style={{ width: '100px' }}
+                src={passport}
+              />
+              <Card.Body className='text-center'>
+                <h5 className='text-white'>Jimna Njoroge</h5>
+                <span className='text-light'>FullStack Developer</span>
+              </Card.Body>
+            </Card>
+            <Card id='language'>
+              <Card.Body>
+                <Row>
+                  <Col>
+                    <Row>
+                      <div style={{ width: 50, height: 50 }}>
+                        <CircularProgressbar
+                          styles={buildStyles({
+                            pathColor: '#f39c12',
+                            textColor: '#8eb5bd',
+                          })}
+                          value={100}
+                          text={'100'}
+                        />
+                      </div>
+                    </Row>
+                    <Row>
+                      <span className='text-center text-light'>English</span>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <div style={{ width: 50, height: 50 }}>
+                        <CircularProgressbar
+                          styles={buildStyles({
+                            pathColor: '#f39c12',
+                            textColor: '#8eb5bd',
+                          })}
+                          value={95}
+                          text='95'
+                        />
+                      </div>
+                    </Row>
+                    <Row>
+                      <span className='text-center text-light'>Swahili</span>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <div style={{ width: 50, height: 50 }}>
+                        <CircularProgressbar
+                          styles={buildStyles({
+                            pathColor: '#f39c12',
+                            textColor: '#8eb5bd',
+                          })}
+                          value={40}
+                          text={'40'}
+                        />
+                      </div>
+                    </Row>
+                    <Row>
+                      <span className='text-center text-light'>Mandarin</span>
+                    </Row>
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+            <Card id='programming'>
+              <Card.Body className='text-light'>
+                <div className='m-1'>
+                  <Row>
+                    <Col>
+                      <div className='mr-auto'>ReactJS</div>
+                    </Col>
+                    <Col>
+                      <div className='float-right'>95%</div>
+                    </Col>
+                  </Row>
+                  <Line percent='95' strokeWidth='1' strokeColor='#f39c12' />
+                </div>
+                <div className='m-1'>
+                  <Row>
+                    <Col>
+                      <div className='mr-auto'>NodeJS</div>
+                    </Col>
+                    <Col>
+                      <div className='float-right'>90%</div>
+                    </Col>
+                  </Row>
+                  <Line percent='90' strokeWidth='1' strokeColor='#f39c12' />
+                </div>
+                <div className='m-1'>
+                  <Row>
+                    <Col>
+                      <div className='mr-auto'>Java</div>
+                    </Col>
+                    <Col>
+                      <div className='float-right'>65%</div>
+                    </Col>
+                  </Row>
+                  <Line percent='65' strokeWidth='1' strokeColor='#f39c12' />
+                </div>
+              </Card.Body>
+            </Card>
+            <Card id='download-cv'>
+              <Card.Body className='d-flex justify-content-center'>
+                <Button className='mx-auto' variant='warning'>
+                  Download CV
+                </Button>
+              </Card.Body>
+            </Card>
+            <Card id='social-media-icons'>
+              <Row>
+                <Col>
+                  <Button
+                    variant='link'
+                    className='text-light'
+                    onClick={() =>
+                      window.open('https://github.com/godzillajim')
+                    }
+                  >
+                    <i className='fab fa-github text-warning'></i>
+                  </Button>
+                </Col>
+                <Col>
+                  <Button variant='link' className='text-light'>
+                    <i className='fab fa-linkedin text-warning'></i>
+                  </Button>
+                </Col>
+                <Col>
+                  <Button
+                    variant='link'
+                    className='text-light'
+                    onClick={() =>
+                      window.open('https://twitter.com/Sir_TerryJones')
+                    }
+                  >
+                    <i className='fab fa-twitter text-warning'></i>
+                  </Button>
+                </Col>
+              </Row>
+            </Card>
+          </Drawer>
           <MDBNavbar
             color='bg-primary'
             fixed='top'
@@ -48,6 +220,17 @@ const AppBar = () => {
             scrolling
             transparent
           >
+            {!open && (
+              <MDBNavbarBrand>
+                <Button
+                  variant='link'
+                  className='text-light'
+                  onClick={() => setOpen(true)}
+                >
+                  <i className='text-light fas fa-bars'></i>
+                </Button>
+              </MDBNavbarBrand>
+            )}
             {!isWideEnough && <MDBNavbarToggler onClick={onClick} />}
             <MDBCollapse isOpen={collapse} navbar>
               <MDBNavbarNav right>
@@ -55,16 +238,10 @@ const AppBar = () => {
                   <MDBNavLink to='/'>Home</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink to='/services'>Service</MDBNavLink>
+                  <MDBNavLink to='#services'>Service</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink to='/about'>About</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to='/portfolio'>Portfolio</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to='/contact'>Contact</MDBNavLink>
+                  <MDBNavLink to='#contact'>Contact</MDBNavLink>
                 </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
@@ -73,7 +250,7 @@ const AppBar = () => {
         <MDBView>
           <MDBMask
             overlay='red-strong'
-            className='flex-center flex-column text-center text-gold mx-3'
+            className='flex-center Sflex-column text-center text-gold mx-3'
             pattern={8}
           >
             <MDBAnimation type='fadeInLeft' delay='.3s'>

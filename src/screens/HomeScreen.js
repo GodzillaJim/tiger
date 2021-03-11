@@ -4,8 +4,6 @@ import AppBar from '../components/AppBar.js';
 import { MDBCard, MDBCardTitle, MDBCardBody, MDBInput } from 'mdbreact';
 import TextField from '@material-ui/core/TextField';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import Drawer from '@material-ui/core/Drawer';
-import Icon from '@material-ui/core/Icon';
 
 const theme = createMuiTheme({
   overrides: {
@@ -32,8 +30,8 @@ const HomeScreen = () => {
   return (
     <Container className='home'>
       <AppBar />
-      <Drawer variant='temporary' open ={true}>Test</Drawer>
       <main className={'inline col mt-4'} style={{ top: '75px' }}>
+        <section id='services'>
         <Row>
           <Col lg={4} md={4} sm={4} xs={4}>
             <Row>
@@ -106,6 +104,7 @@ const HomeScreen = () => {
             </Row>
           </Col>
         </Row>
+        </section>
         <section id='services' className='row my-2'>
           <h3 className='text-info row m-3'>What I do</h3>
           <div className='row'>
@@ -272,7 +271,7 @@ const HomeScreen = () => {
                           InputProps={{
                             className: 'textfield',
                           }}
-                          color='light'
+                          color='primary'
                           onChange={(e) => setName(e.target.value)}
                         />
                       </ThemeProvider>
