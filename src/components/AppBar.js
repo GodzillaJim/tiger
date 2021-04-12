@@ -175,7 +175,11 @@ const AppBar = () => {
             </Card>
             <Card id='download-cv'>
               <Card.Body className='d-flex justify-content-center'>
-                <Button className='mx-auto' variant='warning'>
+                <Button
+                  className='mx-auto text-dark'
+                  variant='warning'
+                  onClick={() => window.open('/docs/my_resume.pdf')}
+                >
                   Download CV
                 </Button>
               </Card.Body>
@@ -236,6 +240,10 @@ const AppBar = () => {
               <MDBNavbarNav right>
                 <MDBNavItem active>
                   <MDBNavLink to='/'>Home</MDBNavLink>
+                </MDBNavItem><MDBNavItem>
+                  <MDBNavLink to='/portfolio' disabled>Portfolio</MDBNavLink>
+                </MDBNavItem><MDBNavItem>
+                  <MDBNavLink to='/blog' disabled>Blog</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                   <MDBNavLink to='#services'>Service</MDBNavLink>
@@ -250,7 +258,7 @@ const AppBar = () => {
         <MDBView>
           <MDBMask
             overlay='red-strong'
-            className='flex-center Sflex-column text-center text-gold mx-3'
+            className='flex-center Sflex-column text-center text-gold'
             pattern={8}
           >
             <MDBAnimation type='fadeInLeft' delay='.3s'>
@@ -259,7 +267,7 @@ const AppBar = () => {
                 className='w-100'
                 style={{ top: '75px', display: 'block', width: '100%' }}
               >
-                <MDBCardBody>
+                <MDBCardBody className='p-1'>
                   <h1 className='mb-15 h1-responsive font-weight-bold my-auto mt-sm-5'>
                     <span>
                       Discover my Amazing
@@ -270,8 +278,12 @@ const AppBar = () => {
                     <div className='col-auto px-0 mt-1'>
                       &lt;<i>code</i>&gt;
                     </div>
-                    <span className='text-light px-0 col-auto' id='typewriter'>
+                    <span
+                      className='text-light px-0 col-auto text-center'
+                      id='typewriter'
+                    >
                       <TypeWriterEffect
+                        className='text-center'
                         textStyle={{
                           fontFamily: 'Red Hat Display',
                           color: 'white',
