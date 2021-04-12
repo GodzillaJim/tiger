@@ -7,7 +7,8 @@ import {
   Form,
   Card,
   Spinner,
-  CardDeck, CardColumns
+  CardDeck,
+  CardColumns,
 } from 'react-bootstrap';
 import AppBar from '../components/AppBar.js';
 import { MDBCard, MDBCardTitle, MDBCardBody, MDBInput } from 'mdbreact';
@@ -227,9 +228,9 @@ const HomeScreen = () => {
                       {' '}
                       MySQL
                     </span>{' '}
-                    ? Is it on cloud or hosted locally? You want to create, manage
-                    or just back-up? It doesn’t matter, you want your data
-                    available and in order, I can ensure that.
+                    ? Is it on cloud or hosted locally? You want to create,
+                    manage or just back-up? It doesn’t matter, you want your
+                    data available and in order, I can ensure that.
                   </MDBCardBody>
                 </MDBCard>
               </Col>
@@ -250,9 +251,9 @@ const HomeScreen = () => {
           </div>
         </section>
         <section id='partners'>
-          <CardColumns className='my-3'>
-            <Card>
-              <Card.Body>
+          <div className='my-3 row justify-content-center'>
+            <Card className='fit-content col-auto m-1'>
+              <Card.Body className='p-1'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='120'
@@ -282,8 +283,8 @@ const HomeScreen = () => {
                 </svg>
               </Card.Body>
             </Card>
-            <Card>
-              <Card.Body>
+            <Card className='fit-content col-auto m-1'>
+              <Card.Body className='p-1'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='120'
@@ -307,8 +308,8 @@ const HomeScreen = () => {
                 </svg>
               </Card.Body>
             </Card>
-            <Card>
-              <Card.Body>
+            <Card className='fit-content col-auto m-1'>
+              <Card.Body className='p-1'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='120' height='60'>
                   <path
                     d='M39.17 13.265a17.24 17.24 0 0 1-1.998 3.544c-4.778-4.776-11.755-6.613-18.265-4.8S7.357 18.966 5.717 25.52 6.086 39 10.98 43.66l.693.612a18.75 18.75 0 0 0 30.781-13.005c.51-4.775-.89-10.817-3.284-18zM13.647 43.767c-.408.504-1.08.713-1.702.53s-1.072-.725-1.14-1.37.26-1.267.83-1.577 1.27-.244 1.774.164c.687.557.793 1.566.236 2.254zm25.444-5.616c-4.628 6.165-14.51 4.086-20.847 4.384 0 0-1.123.066-2.254.252 0 0 .426-.182.972-.387 4.45-1.55 6.553-1.847 9.256-3.238 5.09-2.587 10.123-8.253 11.17-14.143-1.936 5.666-7.815 10.538-13.167 12.517-3.668 1.352-10.294 2.668-10.294 2.668l-.267-.143C9.15 37.87 9.01 28.106 17.2 24.957c3.6-1.383 7.025-.624 10.902-1.55 4.14-.984 8.93-4.086 10.88-8.133 2.18 6.475 4.806 16.6.097 22.88z'
@@ -324,8 +325,8 @@ const HomeScreen = () => {
                 </svg>
               </Card.Body>
             </Card>
-            <Card>
-              <Card.Body>
+            <Card className='fit-content col-auto m-1'>
+              <Card.Body className='p-1'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='120'
@@ -348,8 +349,8 @@ const HomeScreen = () => {
                 </svg>
               </Card.Body>
             </Card>
-            <Card>
-              <Card.Body>
+            <Card className='fit-content col-auto m-1'>
+              <Card.Body className='p-1'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='120' height='60'>
                   <g
                     transform='matrix(.229053 0 0 .229053 -.144648 10.46444)'
@@ -364,8 +365,8 @@ const HomeScreen = () => {
                 </svg>
               </Card.Body>
             </Card>
-            <Card>
-              <Card.Body>
+            <Card className='fit-content col-auto m-1'>
+              <Card.Body className='p-1'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='120' height='60'>
                   <path
                     d='M16.147 5.154l1.09 2.05a6.15 6.15 0 0 0 .824 1.024c.913.913 1.782 1.87 2.56 2.895 1.848 2.427 3.095 5.122 3.986 8.04.534 1.782.824 3.608.846 5.456.09 5.523-1.804 10.266-5.634 14.208a16.3 16.3 0 0 1-2.004 1.715c-.38 0-.557-.3-.713-.557-.3-.5-.468-1.047-.557-1.603-.134-.668-.223-1.336-.178-2.027v-.312c-.022-.067-.356-30.732-.223-30.888z'
@@ -396,7 +397,7 @@ const HomeScreen = () => {
                 </svg>
               </Card.Body>
             </Card>
-          </CardColumns>
+          </div>
         </section>
         <section id='contact' className='m-3'>
           <h3 className='text-info row m-3'>Get in touch.</h3>
