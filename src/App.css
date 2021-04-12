@@ -10,3 +10,10 @@
 .react-typewriter-text {
   text-align: center;
 }
+.selected{
+  color: white;
+}
+.hover-white:hover{
+  color: white;
+  text-decoration: none;
+}

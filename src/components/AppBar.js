@@ -4,6 +4,7 @@ import { CircularProgressBar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { SocialMediaIconsReact } from 'social-media-icons-react';
 import { Line } from 'rc-progress';
+import { NavHashLink as Link } from 'react-router-hash-link';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -238,18 +239,57 @@ const AppBar = () => {
             {!isWideEnough && <MDBNavbarToggler onClick={onClick} />}
             <MDBCollapse isOpen={collapse} navbar>
               <MDBNavbarNav right>
-                <MDBNavItem active>
-                  <MDBNavLink to='/'>Home</MDBNavLink>
-                </MDBNavItem><MDBNavItem>
-                  <MDBNavLink to='/portfolio' disabled>Portfolio</MDBNavLink>
-                </MDBNavItem><MDBNavItem>
-                  <MDBNavLink to='/blog' disabled>Blog</MDBNavLink>
+                <MDBNavItem className='m-2'>
+                  <Link
+                    className='hover-white'
+                    activeClassName='selected'
+                    smooth
+                    to={'/#home'}
+                  >
+                    Home
+                  </Link>
                 </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to='#services'>Service</MDBNavLink>
+                <MDBNavItem className='m-2'>
+                  <Link
+                    className='hover-white disabled'
+                    activeClassName='selected'
+                    smooth
+                    to={'/#portfolio'}
+                    disabled
+                  >
+                    Portfolio
+                  </Link>
                 </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink to='#contact'>Contact</MDBNavLink>
+                <MDBNavItem className='m-2'>
+                  <Link
+                    className='hover-white disabled'
+                    activeClassName='selected'
+                    smooth
+                    to={'/#blog'}
+                    disabled
+                  >
+                    Blog
+                  </Link>
+                </MDBNavItem>
+                <MDBNavItem className='m-2'>
+                  <Link
+                    className='hover-white'
+                    activeClassName='selected'
+                    smooth
+                    to={'/#services'}
+                  >
+                    Services
+                  </Link>
+                </MDBNavItem>
+                <MDBNavItem className='m-2'>
+                  <Link
+                    className='hover-white'
+                    activeClassName='selected'
+                    smooth
+                    to={'/#contact'}
+                  >
+                    Contact
+                  </Link>
                 </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
@@ -267,7 +307,7 @@ const AppBar = () => {
                 className='w-100'
                 style={{ top: '75px', display: 'block', width: '100%' }}
               >
-                <MDBCardBody className='p-1'>
+                <MDBCardBody className='p-1' id='home'>
                   <h1 className='mb-15 h1-responsive font-weight-bold my-auto mt-sm-5'>
                     <span>
                       Discover my Amazing
