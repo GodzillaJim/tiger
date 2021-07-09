@@ -36,13 +36,14 @@ const Loading = () => {
           </g>
         </svg>
       </div>
-      <div className='text-warning h4'>
+      <div className='text-warning text-center h4'>
         <TypeWriterEffect
-          className='text-warning'
+          className='text-warning text-center'
           textStyle={{
             fontFamily: 'Lucida sans typewriter',
             fontWeight: 500,
             fontSize: '1.5em',
+            textAlign: 'center'
           }}
           startDelay={1000}
           cursorColor='#3F3D56'
