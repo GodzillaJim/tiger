@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomeScreen from './screens/HomeScreen'
+import { ThemeProvider } from '@material-ui/core'
+import './App.css'
+import theme from './theme/theme'
+import TopBar from './components/TopBar'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <ThemeProvider theme={theme}>
+            <Paths/>
+        </ThemeProvider>
+  )
 }
 
-export default App;
+const Paths = () => {
+  const [summary, openSummary] = React.useState(false)
+  const [menu, setMenu] = React.useState(false)
+  React.useEffect(() => {
+    if (summary) {
+      if (window.innerWidth > 720) {
+        // TODO: Make drawer visible on large screens
+      }
+    }
+  })
+  return <BrowserRouter>
+        <div>
+            <div className={'row'}>
+                <TopBar menu={menu} summary={summary} handleCloseMenu={setMenu}
+                        handleOpenSummary={openSummary}/>
+            </div>
+            <Routes className={'row'}>
+                <Route path={'/'}
+                       element={<HomeScreen menu={menu} summary={summary}/>}/>
+            </Routes>
+        </div>
+    </BrowserRouter>
+}
+export default App
